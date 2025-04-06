@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách theo dõi</title>
+    <!-- Include your CSS files here -->
+</head>
+<body>
+    <div class="container">
+        <h1>Danh sách theo dõi</h1>
+        
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Đang theo dõi (<span th:text="${following.size()}"></span>)</h5>
+                    </div>
+                    <div class="card-body">
+                        <div th:if="${following.isEmpty()}" class="text-center">
+                            <p>Bạn chưa theo dõi ai.</p>
+                        </div>
+                        <ul class="list-group" th:unless="${following.isEmpty()}">
+                            <li class="list-group-item d-flex justify-content-between align-items-center" th:each="user : ${following}">
+                                <span th:text="${user.username}"></span>
+                                <form th:action="@{/follows/unfollow/{id}(id=${user.id})}" method="post">
+                                    <button type="submit" class="btn btn-danger btn-sm">Bỏ theo dõi</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Người theo dõi (<span th:text="${followers.size()}"></span>)</h5>
+                    </div>
+                    <div class="card-body">
+                        <div th:if="${followers.isEmpty()}" class="text-center">
+                            <p>Chưa có ai theo dõi bạn.</p>
+                        </div>
+                        <ul class="list-group" th:unless="${followers.isEmpty()}">
+                            <li class="list-group-item" th:each="user : ${followers}">
+                                <span th:text="${user.username}"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-3">
+            <a th:href="@{/users/list}" class="btn btn-secondary">Quay lại danh sách người dùng</a>
+        </div>
+    </div>
+</body>
+</html>
