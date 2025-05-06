@@ -39,23 +39,6 @@ public class PostController {
         return "admin/posts";
     }
 
-    // Tao bai viet moi
-    // @GetMapping("/create")
-    // public String newPostForm(Model model)
-    // {
-    //     model.addAttribute("post", new Post());
-    //     return "admin/post_form";
-    // }
-
-    // // Lưu bài viết
-    // @PostMapping("/create")
-    // public String savePost(@ModelAttribute Post post)
-    // {
-    //     postService.savePost(post);
-    //     return "redirect:/admin/posts";
-    // }
-
-    // Them bai viet
     @GetMapping("/create")
     public String showCreateForm(Model model)
     {

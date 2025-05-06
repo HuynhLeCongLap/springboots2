@@ -17,20 +17,6 @@ import com.entity.demo_springboot.repository.UserRepository;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
-
-    // @Autowired
-    // private PasswordEncoder passwordEncoder;
-
-    // public void register(User user)
-    // {
-    //     if (userRepository.findByUsername(user.getUsername()) != null) 
-    //     {
-    //         throw new RuntimeException("Tên đăng nhập đã tồn tại !");
-    //     }
-    //     user.setPassword(passwordEncoder.encode(user.getPassword()));
-    //     userRepository.save(user);
-    // }
-
     @Override
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);

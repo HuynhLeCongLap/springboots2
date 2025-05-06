@@ -28,11 +28,6 @@ public class HomeController {
     {
         return "admin/user_list";
     }
-    @GetMapping("/follow_list")
-    public String followlist()
-    {
-        return "admin/follow_list";
-    }
     @GetMapping("/post_form")
     public String post_form()
     {
