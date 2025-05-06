@@ -114,3 +114,4 @@ CREATE TABLE `users_roles` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2025-05-06 22:29:44
+ INSERT INTO users (username, password, role) VALUES ('admin', '$2a$10$ChE3oJpHvdHmZWJ.vU4o3e4irXnM.GPb1SQIFd9ONqGizLqBlo3bK', 'ADMIN');
